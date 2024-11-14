@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 * In a terminal window, please type the following:
 ```
-
+ python manage.py runserver
 ```
 
 ### Output
