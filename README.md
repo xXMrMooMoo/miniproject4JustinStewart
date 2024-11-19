@@ -27,8 +27,14 @@ Justin Stewart
 
 ## Acknowledgments
 
-* [Flask Tutorial](https://flask.palletsprojects.com/en/stable/tutorial/)
+* [Django Documentation](https://docs.djangoproject.com/)
 * [Bootstrap Modals](https://getbootstrap.com/docs/4.0/components/modal/)
+
+## Other Useful Commands
+Should you forget the superuser account information, to add a new account, from the terminal:
+```
+python manage.py createsuperuser
+```
 
 
 
