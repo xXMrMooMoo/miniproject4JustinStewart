@@ -1,4 +1,7 @@
-import datetime
+### INF601 - Advanced Programming in Python
+### Justin Stewart
+### Mini Project 4
+
 from django.contrib import admin
 from django.db import models
 from django.utils import timezone

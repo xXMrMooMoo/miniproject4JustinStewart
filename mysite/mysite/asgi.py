@@ -1,3 +1,6 @@
+### INF601 - Advanced Programming in Python
+### Justin Stewart
+### Mini Project 4
 """
 ASGI config for mysite project.
 

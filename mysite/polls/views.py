@@ -1,3 +1,7 @@
+### INF601 - Advanced Programming in Python
+### Justin Stewart
+### Mini Project 4
+
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render

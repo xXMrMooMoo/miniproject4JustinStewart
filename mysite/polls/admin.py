@@ -1,5 +1,8 @@
-from django.contrib import admin
+### INF601 - Advanced Programming in Python
+### Justin Stewart
+### Mini Project 4
 
+from django.contrib import admin
 from .models import Question, Choice
 
 class ChoiceInline(admin.TabularInline):
