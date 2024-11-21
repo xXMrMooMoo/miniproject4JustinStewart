@@ -1,6 +1,122 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: white url("images/background.jpg") no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust this to make the image opaque */
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Main Text Styling */
+h1, h2, h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+h2, p, label, main {
+    color: white;
+}
+
+/* Link Styling */
 li a {
     color: green;
+    text-decoration: none;
+    transition: color 0.3s;
 }
-body {
-    background: white url("images/background.jpg") no-repeat;
+
+li a:hover {
+    color: lime;
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #0056b3;
+    border-color: #004085;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #004085;
+    color: #e6e6e6;
+}
+
+.btn-outline-primary {
+    color: #0056b3;
+    border-color: #0056b3;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 30px;
+}
+
+/* Toast Message Styling */
+.toast {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Home Page Styling */
+.display-4 {
+    font-size: 2.75rem;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #bbb;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn-primary, .btn-outline-primary {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
 }

@@ -9,6 +9,14 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+
+
+
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
@@ -51,4 +59,41 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
+
+def register(request):
+    if request.method == "POST":
+        print("Form submitted")  # Debug: Confirm POST request
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            print("Form is valid")  # Debug: Confirm form validation
+            form.save()
+            messages.success(request, "User created successfully!")
+            return redirect("polls:login")
+        else:
+            print("Form is invalid")  # Debug: Print validation errors
+            print(form.errors)  # Debug: Print form errors
+    else:
+        form = UserCreationForm()
+
+    return render(request, "polls/register.html", {"form": form})
+
+def home(request):
+    # Render the fancy home page
+    return render(request, "polls/home.html")
+
+
+
+class CustomLoginView(LoginView):
+    template_name = 'polls/login.html'
+
+    def form_valid(self, form):
+        messages.success(self.request, "You are now logged in!")  # Add toast message
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Pass a modal message to the template
+        if self.request.method == "POST":
+            context['modal_message'] = "You are now logged in!" if self.request.user.is_authenticated else "Invalid login credentials. Please try again."
+        return context
 

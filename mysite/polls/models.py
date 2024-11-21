@@ -6,6 +6,8 @@ from django.contrib import admin
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
+
 
 
 
@@ -33,3 +35,13 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    login_count = models.PositiveIntegerField(default=0)
+    last_login = models.DateTimeField(null=True, blank=True)
+    location = models.CharField(max_length=100, blank=True)  # Ensure this field exists
+    birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Profile"

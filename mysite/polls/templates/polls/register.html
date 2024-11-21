@@ -1,0 +1,37 @@
+{% extends "polls/base_generic.html" %}
+
+{% block content %}
+<h2>Register</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {% if form.errors %}
+            <ul class="errorlist">
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field|capfirst }}:
+                        <ul>
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div>
+        <label for="id_username">Username:</label>
+        {{ form.username }}
+    </div>
+    <div>
+        <label for="id_password1">Password:</label>
+        {{ form.password1 }}
+    </div>
+    <div>
+        <label for="id_password2">Confirm Password:</label>
+        {{ form.password2 }}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}

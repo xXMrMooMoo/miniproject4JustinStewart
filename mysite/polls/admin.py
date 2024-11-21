@@ -4,6 +4,8 @@
 
 from django.contrib import admin
 from .models import Question, Choice
+from django.contrib import admin
+from .models import Profile
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
@@ -21,6 +23,10 @@ class QuestionAdmin(admin.ModelAdmin):
         ("Date information", {"fields": ["pub_date"], "classes": ["collapse"]}),
     ]
     inlines = [ChoiceInline]
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'login_count', 'last_login')
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)

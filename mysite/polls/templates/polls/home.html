@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls App - Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-primary">Welcome to the Polls App!</h1>
+        <p class="lead text-secondary">Your go-to platform for creating and participating in polls!</p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-center my-4">
+            <a href="{% url 'polls:index' %}" class="btn btn-primary btn-lg me-md-2">View Polls</a>
+            <a href="{% url 'polls:register' %}" class="btn btn-outline-primary btn-lg">Register</a>
+        </div>
+
+        <footer class="mt-5 text-secondary">
+            <p>&copy; 2024 Polls App. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

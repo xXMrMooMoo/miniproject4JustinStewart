@@ -1,6 +1,7 @@
 ### INF601 - Advanced Programming in Python
 ### Justin Stewart
 ### Mini Project 4
+
 """
 URL configuration for mysite project.
 
@@ -20,14 +21,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
-from debug_toolbar.toolbar import debug_toolbar_urls
+from polls import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
-] + debug_toolbar_urls()
+    path("", views.home, name="home"),  # Root URL
+    path("polls/", include("polls.urls")),  # Polls app URLs
+    path("admin/", admin.site.urls),  # Admin URLs
+]
 
-if not settings.TESTING:
-    urlpatterns = [
-        *urlpatterns,
-    ] + debug_toolbar_urls()
+# Add debug toolbar routes only in debug mode
+if settings.DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
+    urlpatterns += debug_toolbar_urls()
